@@ -22,9 +22,10 @@ public class RecipeController {
 //        }
         boolean isLink = false;
         try {
-            DBWorker db = new DBWorker();
-            recipe = db.getRecipe(good);
-            isLink = true;
+            if (good != null) {
+                DBWorker db = new DBWorker();
+                recipe = db.getRecipe(good);
+                isLink = true;
 //            Good g = (good[0] == null) ? (new Good("EMPTY", 0)) : (db.getOneGood(good[0]));
 //            if (g == null) {
 //                System.out.println("\nWHY NULL???\n");
@@ -32,15 +33,15 @@ public class RecipeController {
 //            } else {
 //                list += " : " + g.getName() + " " + g.getCalories();
 //            }
-            db.closeConnection();
-
+                db.closeConnection();
+            }
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
         model.addAttribute("responseGood", recipe);
         //return "viewrecipes";
-        return isLink ? ("redirect:" + recipe) : "index";
+        return isLink ? ("redirect:" + recipe) : "viewrecipes";
 
     }
 

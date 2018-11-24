@@ -6,8 +6,8 @@
 
 
     <bean name="/hellopage.eat" class="easyeat.easyteam.controllers.RecipeController"/>
-    <bean name="/index.jsp" class="easyeat.easyteam.controllers.RecipeController"/>
-    <!--bean name="/recipepage.eat" class="easyeat.easyteam.controllers.RecipeController"/-->
+    <!--bean name="/index.jsp" class="easyeat.easyteam.controllers.RecipeController"/-->
+    <bean name="/recipepage.eat" class="easyeat.easyteam.controllers.RecipeController"/>
 
 
 
