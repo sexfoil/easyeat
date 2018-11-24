@@ -21,7 +21,7 @@ public class RecipeController {
         }
         try {
             DBWorker db = new DBWorker();
-            Good g = db.getOneGood("Raptor");
+            Good g = good[0] == null? new Good("EMPTY", 0) : db.getOneGood(good[0]);
             list += " : " + g.getName() + " " + g.getCalories();
         } catch (InstantiationException e) {
             e.printStackTrace();
