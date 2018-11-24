@@ -15,11 +15,11 @@ public class RecipeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getListOfGoods(@RequestParam ("good") String[] good, ModelMap model) {
-        String list = "";
+        //String list = "";
         String recipe = "";
-        for (String item : good) {
-            list += "(" + item + ")";
-        }
+//        for (String item : good) {
+//            list += "(" + item + ")";
+//        }
         boolean isLink = false;
         try {
             DBWorker db = new DBWorker();
@@ -38,7 +38,7 @@ public class RecipeController {
             e.printStackTrace();
         }
 
-        model.addAttribute("responseGood", list);
+        model.addAttribute("responseGood", recipe);
         //return "viewrecipes";
         return isLink ? ("redirect:" + recipe) : "viewrecipes";
 
