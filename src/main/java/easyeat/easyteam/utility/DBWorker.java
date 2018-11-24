@@ -12,24 +12,24 @@ public class DBWorker {
     public DBWorker() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         System.out.println("-----------------");
-        String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-        String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-        String DB_NAME = System.getenv("OPENSHIFT_APP_NAME");
-        String FORNAME_URL = "com.mysql.jdbc.Driver";
+        //String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+        //String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+        //String DB_NAME = System.getenv("OPENSHIFT_APP_NAME");
+        //String FORNAME_URL = "com.mysql.jdbc.Driver";
 
-        System.out.println(USERNAME + " : " + PASSWORD + " : " + DB_NAME);
+        //System.out.println(USERNAME + " : " + PASSWORD + " : " + DB_NAME);
 
-        String URL = "jdbc:"+System.getenv("OPENSHIFT_MYSQL_DB_URL")+ DB_NAME;
+        //String URL = "jdbc:"+System.getenv("OPENSHIFT_MYSQL_DB_URL")+ DB_NAME;
 
 
-       connection = DriverManager.getConnection(URL , USERNAME , PASSWORD);
+       //connection = DriverManager.getConnection(URL , USERNAME , PASSWORD);
 
         //connection = DriverManager.getConnection("jdbc:mysql://localhost/warplanes?serverTimezone=UTC", "root", "");
 
         // openshift DB connection here mysql://warplanesmysql:3306/
-//        connection = DriverManager.getConnection(
-//                "jdbc:mysql://easyeatmysql:3306/easyeat?serverTimezone=UTC",
-//                "root", "sexfoil");
+        connection = DriverManager.getConnection(
+                "jdbc:mysql://mysql:3306/eedatabase?serverTimezone=UTC",
+                "root", "easyeat");
 
         statement = connection.createStatement();
         System.out.println("Successful  connection with DB ...");
