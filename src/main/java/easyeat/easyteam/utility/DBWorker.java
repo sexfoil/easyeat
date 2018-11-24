@@ -107,6 +107,7 @@ public class DBWorker {
                     }
                 }
                 recipe = resultSet.getString("link");
+                System.out.println("\n" + recipe + "\n");
             }
 
         } catch (SQLException e) {

@@ -16,7 +16,7 @@ public class RecipeController {
     @RequestMapping(method = RequestMethod.GET)
     public String getListOfGoods(@RequestParam ("good") String[] good, ModelMap model) {
         //String list = "";
-        String recipe = "";
+        String recipe = "null";
 //        for (String item : good) {
 //            list += "(" + item + ")";
 //        }
@@ -40,7 +40,7 @@ public class RecipeController {
 
         model.addAttribute("responseGood", recipe);
         //return "viewrecipes";
-        return isLink ? ("redirect:" + recipe) : "viewrecipes";
+        return isLink ? ("redirect:" + recipe) : "index";
 
     }
 
