@@ -94,7 +94,7 @@ public class DBWorker {
 
     public String getRecipe(String[] good_set) {
         String query = "SELECT * FROM  recipes;";
-        String recipe = "https://1000.menu/#catalog";
+        String recipe = null;
         try {
             ResultSet resultSet = statement.executeQuery(query);
 

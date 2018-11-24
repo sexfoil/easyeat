@@ -16,16 +16,16 @@ public class RecipeController {
     @RequestMapping(method = RequestMethod.GET)
     public String getListOfGoods(@RequestParam ("good") String[] good, ModelMap model) {
         //String list = "";
-        String recipe = "null";
+        String recipe = null;
 //        for (String item : good) {
 //            list += "(" + item + ")";
 //        }
-        boolean isLink = false;
+        //boolean isLink = false;
         try {
             if (good != null) {
                 DBWorker db = new DBWorker();
                 recipe = db.getRecipe(good);
-                isLink = true;
+                //isLink = true;
 //            Good g = (good[0] == null) ? (new Good("EMPTY", 0)) : (db.getOneGood(good[0]));
 //            if (g == null) {
 //                System.out.println("\nWHY NULL???\n");
@@ -41,7 +41,7 @@ public class RecipeController {
 
         model.addAttribute("responseGood", recipe);
         //return "viewrecipes";
-        return isLink ? ("redirect:" + recipe) : "viewrecipes";
+        return recipe != null ? ("redirect:" + recipe) : "viewrecipes";
 
     }
 
