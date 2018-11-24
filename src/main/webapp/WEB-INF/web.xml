@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app   xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+           version="4.0"
+           metadata-complete="true">
+
+  <display-name>Easy Eat</display-name>
+  <description>
+    Easy Team GHW2018 Project "EasyEat"
+  </description>
+
+  <servlet>
+    <servlet-name>easyeat</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>easyeat</servlet-name>
+    <url-pattern>*.eat</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>

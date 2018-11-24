@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EasyEat:war">
+    <output-path>$PROJECT_DIR$/../easyeat/target</output-path>
+    <root id="archive" name="easyeatapp.war">
+      <element id="artifact" artifact-name="EasyEat:war exploded" />
+    </root>
+  </artifact>
+</component>
