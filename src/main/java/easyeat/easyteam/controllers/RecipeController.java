@@ -45,9 +45,9 @@ public class RecipeController {
 
     }
 
-    @RequestMapping(value = "/redirectExample", method = RequestMethod.GET)
-    public String redirectExample(HttpServletRequest request) {
-        //request.getScheme() - if you don't know where was the request sent: http, https, ftp..
-        return "redirect:" + request.getScheme() +"://javastudy.ru";
-    }
+//    @RequestMapping(value = "/redirectExample", method = RequestMethod.GET)
+//    public String redirectExample(HttpServletRequest request) {
+//        //request.getScheme() - if you don't know where was the request sent: http, https, ftp..
+//        return "redirect:" + request.getScheme() +"://javastudy.ru";
+//    }
 }
