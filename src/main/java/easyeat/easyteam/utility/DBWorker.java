@@ -56,7 +56,7 @@ public class DBWorker {
     public boolean isUserExist(String login) {
 
         boolean isExist = false;
-        String query = "SELECT * FROM  users WHERE name = '" + login + "'";
+        String query = "SELECT * FROM  users WHERE name='" + login + "'";
 
         try {
             ResultSet resultSet = statement.executeQuery(query);

@@ -21,17 +21,17 @@ public class RecipeController {
         }
         try {
             DBWorker db = new DBWorker();
-            Good g = good[0] == null? new Good("EMPTY", 0) : db.getOneGood(good[0]);
-            list += " : " + g.getName() + " " + g.getCalories();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+            Good g = (good[0] == null) ? (new Good("EMPTY", 0)) : (db.getOneGood(good[0]));
+            if (g == null) {
+                System.out.println("\nWHY NULL???\n");
+                list += " NULL";
+            } else {
+                list += " : " + g.getName() + " " + g.getCalories();
+            }
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+
         model.addAttribute("responseGood", list);
         return "viewrecipes";
     }
