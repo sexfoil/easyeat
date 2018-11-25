@@ -1,53 +1,62 @@
 package easyeat.easyteam.controllers;
 
-import easyeat.easyteam.models.Good;
+//import easyeat.easyteam.models.Good;
+
 import easyeat.easyteam.utility.DBWorker;
+//import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.SQLException;
 
 @Controller
 public class RecipeController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String getListOfGoods(@RequestParam ("good") String[] good, ModelMap model) {
-        //String list = "";
+    @RequestMapping(method = RequestMethod.GET, produces="text/plain")
+    @ResponseBody
+    public String getResponseBodyOfRecipe(@RequestParam("good") String[] good, ModelMap model) {
         String recipe = null;
-//        for (String item : good) {
-//            list += "(" + item + ")";
-//        }
-        //boolean isLink = false;
+
         try {
             if (good != null) {
                 DBWorker db = new DBWorker();
                 recipe = db.getRecipe(good);
-                //isLink = true;
-//            Good g = (good[0] == null) ? (new Good("EMPTY", 0)) : (db.getOneGood(good[0]));
-//            if (g == null) {
-//                System.out.println("\nWHY NULL???\n");
-//                list += " NULL";
-//            } else {
-//                list += " : " + g.getName() + " " + g.getCalories();
-//            }
                 db.closeConnection();
             }
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
-        model.addAttribute("responseGood", recipe);
-        //return "viewrecipes";
-        return recipe != null ? ("redirect:" + recipe) : "viewrecipes";
-
+        model.addAttribute("responseGood", (recipe != null ? recipe : "NO MATCH"));
+        return recipe != null ? recipe : "GO TO SEARCHING...";
     }
 
-//    @RequestMapping(value = "/redirectExample", method = RequestMethod.GET)
-//    public String redirectExample(HttpServletRequest request) {
-//        //request.getScheme() - if you don't know where was the request sent: http, https, ftp..
-//        return "redirect:" + request.getScheme() +"://javastudy.ru";
-//    }
-}
+
+//    @Controller
+//    public class RecipeController {
+//
+//        @RequestMapping(method = RequestMethod.GET) //, produces = MediaType.APPLICATION_JSON_VALUE)
+//        public String getListOfGoods(@RequestParam("good") String[] good, ModelMap model) {
+//            String recipe = null;
+//
+//            try {
+//                if (good != null) {
+//                    DBWorker db = new DBWorker();
+//                    recipe = db.getRecipe(good);
+//                    db.closeConnection();
+//                }
+//            } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+//                e.printStackTrace();
+//            }
+//
+//            model.addAttribute("responseGood", (recipe != null ? recipe : "NO MATCH"));
+//            return "viewrecipes";
+//            //return recipe != null ? ("redirect:" + recipe) : "viewrecipes";
+//
+//        }
+
+    }

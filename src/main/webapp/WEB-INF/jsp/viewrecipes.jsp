@@ -2,6 +2,7 @@
 
 </br>
 RESPONSE: ${responseGood}
+RESPONSE: ${responseGood}
 </br>
 
 <form action="" methd="get">
